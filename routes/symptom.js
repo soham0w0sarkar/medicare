@@ -3,6 +3,6 @@ import { symptom } from "../controllers/symptom.js";
 
 const symptomRouter = express.Router();
 
-symptomRouter.get("/symptom", symptom);
+symptomRouter.post("/symptom", symptom);
 
 export default symptomRouter;

@@ -106,6 +106,11 @@ export const symptom = catchAsyncError(async (req, res, next) => {
     Asthma: ["wheezing", "shortness of breath", "chest tightness", "coughing"],
   };
   const { symptoms } = req.body;
+
+  if (!symptoms) {
+    return next(new Error("Please provide symptoms"));
+  }
+
   const possibleDisease = [];
   for (let [disease, tsymptoms] of Object.entries(diseases)) {
     symptoms.forEach((symptom) => {
